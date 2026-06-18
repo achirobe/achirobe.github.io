@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reamy Womodowe Achirobe — MPhil Researcher in Mechanical Engineering (Thermofluids & Energy Systems) at KNUST, Ghana. Specializing in AI-driven solar PV diagnostics via infrared thermography." />
+  <title>Reamy Womodowe Achirobe — MPhil Researcher | KNUST</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --bg-base:       #F9F8F6;
+      --bg-layer:      #FFFFFF;
+      --bg-raised:     #F2F0EC;
+      --blue:          #18305A;
+      --blue-hi:       #2A4A7A;
+      --gold:          #96761E;
+      --gold-hi:       #B89028;
+      --text-hi:       #0D1117;
+      --text-mid:      #3D4B5E;
+      --text-lo:       #8A9BAE;
+      --glass-fill:    rgba(255,255,255,0.92);
+      --glass-border:  rgba(0,0,0,0.08);
+      --glow-blue:     0 4px 24px rgba(24,48,90,0.14);
+      --glow-gold:     0 4px 24px rgba(150,118,30,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-base);
+      color: var(--text-hi);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ===== CUSTOM SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #E8E5DF; }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+    /* ===== SCROLL PROGRESS ===== */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--blue), var(--gold));
+      z-index: 9999;
+      transition: width 0.05s linear;
+    }
+
+    /* ===== GRID BACKGROUND ===== */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* ===== GRADIENT TEXT ===== */
+    .grad {
+      background: linear-gradient(135deg, var(--blue-hi) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: grad-shift 8s ease infinite;
+    }
+    @keyframes grad-shift {
+      0%   { background-position: 0%   center; }
+      50%  { background-position: 100% center; }
+      100% { background-position: 0%   center; }
+    }
+
+    /* ===== CARD STYLE (replaces dark glassmorphism) ===== */
+    .glass {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.05);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+    .glass:hover {
+      border-color: rgba(24,48,90,.25);
+      box-shadow: 0 4px 16px rgba(0,0,0,.1), 0 8px 32px rgba(24,48,90,.08);
+      transform: translateY(-2px);
+    }
+    .glass-flat {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.04);
+    }
+
+    /* ===== ORBS ===== */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.25;
+      pointer-events: none;
+      transition: transform 0.4s ease-out;
+    }
+
+    /* ===== TYPING CURSOR ===== */
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--blue);
+      margin-left: 3px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ===== FLOATING ===== */
+    .float { animation: float 7s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+    /* ===== SLOW ROTATE ===== */
+    .ring-cw  { animation: ring-cw  22s linear infinite; }
+    .ring-ccw { animation: ring-ccw 30s linear infinite; }
+    @keyframes ring-cw  { to { transform: rotate(360deg);  } }
+    @keyframes ring-ccw { to { transform: rotate(-360deg); } }
+
+    /* ===== GLOW PULSE ===== */
+    .glow-pulse { animation: glow-pulse 4s ease-in-out infinite; }
+    @keyframes glow-pulse {
+      0%,100% { box-shadow: 0 0 0 3px rgba(24,48,90,.08), 0 4px 24px rgba(0,0,0,.1); }
+      50%      { box-shadow: 0 0 0 4px rgba(24,48,90,.14), 0 8px 32px rgba(0,0,0,.14); }
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .sr       { opacity:0; transform:translateY(36px);  transition:opacity .7s ease,transform .7s ease; }
+    .sr-left  { opacity:0; transform:translateX(-36px); transition:opacity .7s ease,transform .7s ease; }
+    .sr-right { opacity:0; transform:translateX(36px);  transition:opacity .7s ease,transform .7s ease; }
+    .sr.on, .sr-left.on, .sr-right.on { opacity:1; transform:none; }
+
+    /* ===== SKILL BARS ===== */
+    .bar-track {
+      height: 5px; background: rgba(0,0,0,0.08);
+      border-radius: 3px; overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; width: 0%; border-radius: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-hi));
+      transition: width 1.6s cubic-bezier(.4,0,.2,1);
+    }
+    .bar-fill.alt { background: linear-gradient(90deg, var(--blue), var(--gold)); }
+
+    /* ===== TAGS ===== */
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .67rem;
+      padding: .2rem .55rem;
+      border-radius: 4px;
+      background: rgba(24,48,90,.07);
+      color: #18305A;
+      border: 1px solid rgba(24,48,90,.16);
+      white-space: nowrap;
+    }
+    .tag-purple {
+      background: rgba(150,118,30,.08);
+      color: #6B4E10;
+      border-color: rgba(150,118,30,.22);
+    }
+    .tag-cyan {
+      background: rgba(42,74,122,.07);
+      color: #2A4A7A;
+      border-color: rgba(42,74,122,.18);
+    }
+    .tag-red {
+      background: rgba(153,27,27,.07);
+      color: #7F1D1D;
+      border-color: rgba(153,27,27,.2);
+    }
+
+    /* ===== LABEL ===== */
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--blue);
+      color: #fff;
+      padding: .7rem 1.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: .88rem;
+      letter-spacing: .04em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      transition: left .45s ease;
+    }
+    .btn-primary:hover::after { left: 100%; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(24,48,90,.35); background: var(--blue-hi); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: transparent;
+      color: var(--blue);
+      padding: .7rem 1.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: .88rem;
+      letter-spacing: .04em;
+      border: 1.5px solid var(--blue);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .25s ease, transform .25s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(24,48,90,.06);
+      transform: translateY(-2px);
+    }
+
+    /* ===== NAV LINKS ===== */
+    .nav-a {
+      position: relative;
+      color: var(--text-mid);
+      font-size: .83rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0%; height: 2px;
+      background: var(--gold);
+      transition: width .3s ease;
+    }
+    .nav-a:hover { color: var(--blue); }
+    .nav-a:hover::after { width: 100%; }
+
+    /* ===== RESEARCH CARD ACCENT ===== */
+    .r-card { border-left: 3px solid var(--gold); }
+    .r-card:hover { border-left-color: var(--blue); }
+
+    /* ===== TIMELINE ===== */
+    .tl-item { position: relative; padding-left: 2rem; }
+    .tl-item::before {
+      content: '';
+      position: absolute; left: -6px; top: 10px;
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 12px var(--blue);
+    }
+    .tl-line {
+      position: absolute; left: 0; top: 24px; bottom: -20px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--blue), var(--gold));
+      opacity: .3;
+    }
+
+    /* ===== CONTACT INPUTS ===== */
+    .field {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(0,0,0,.12);
+      border-radius: 8px;
+      color: var(--text-hi);
+      padding: .7rem 1rem;
+      font-size: .92rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color .3s, box-shadow .3s;
+      outline: none;
+    }
+    .field:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(24,48,90,.1);
+    }
+    .field::placeholder { color: var(--text-lo); }
+
+    /* ===== PHOTO PLACEHOLDER ===== */
+    .photo-wrap {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(24,48,90,.08), rgba(150,118,30,.08));
+      border: 2px solid rgba(24,48,90,.15);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+
+    /* ===== ICON BOX ===== */
+    .icon-box {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ===== STAT ===== */
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* ===== TOOL CHIP ===== */
+    .chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .55rem .75rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background .25s ease, transform .25s ease;
+    }
+    .chip:hover { transform: scale(1.06); }
+
+    /* ===== METRIC BOX ===== */
+    .metric {
+      border-radius: 10px;
+      padding: .75rem;
+      text-align: center;
+    }
+
+    /* ===== SECTION SPACING ===== */
+    .section { padding: 6rem 1.5rem; }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      .sr, .sr-left, .sr-right { opacity: 1 !important; transform: none !important; }
+      .float, .glow-pulse, .ring-cw, .ring-ccw { animation: none !important; }
+      #particle-canvas { display: none !important; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- ============================================================ -->
+  <!-- NAVIGATION                                                    -->
+  <!-- ============================================================ -->
+  <nav id="navbar" class="fixed z-50 top-4 left-1/2 -translate-x-1/2 w-full max-w-5xl px-4">
+    <div id="nav-glass" class="glass-flat px-6 py-3 flex items-center justify-between transition-all duration-300">
+      <a href="#hero" class="font-serif text-xl font-semibold grad" style="text-decoration:none;">R · W · A</a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about"      class="nav-a">About</a>
+        <a href="#research"   class="nav-a">Research</a>
+        <a href="#skills"     class="nav-a">Skills</a>
+        <a href="#projects"   class="nav-a">Projects</a>
+        <a href="#experience" class="nav-a">Experience</a>
+        <a href="#contact"    class="nav-a">Contact</a>
+      </div>
+
+      <a href="mailto:rachirobe@gmail.com" class="hidden md:inline-flex btn-primary text-sm py-2 px-4">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Hire Me
+      </a>
+
+      <!-- Mobile toggle -->
+      <button id="mob-btn" aria-label="Menu" class="md:hidden p-2 cursor-pointer" style="background:none;border:none;color:var(--blue);">
+        <svg id="mob-icon-open"  class="w-6 h-6"        fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="mob-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mob-menu" class="hidden glass-flat mt-2 px-6 py-4 flex-col gap-3">
+      <a href="#about"      class="nav-a block py-1.5">About</a>
+      <a href="#research"   class="nav-a block py-1.5">Research</a>
+      <a href="#skills"     class="nav-a block py-1.5">Skills</a>
+      <a href="#projects"   class="nav-a block py-1.5">Projects</a>
+      <a href="#experience" class="nav-a block py-1.5">Experience</a>
+      <a href="#contact"    class="nav-a block py-1.5">Contact</a>
+      <a href="mailto:rachirobe@gmail.com" class="btn-primary text-sm mt-2" style="justify-content:center;">Contact Me</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- HERO                                                          -->
+  <!-- ============================================================ -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+    <canvas id="particle-canvas" class="absolute inset-0 w-full h-full" style="pointer-events:none;z-index:0;"></canvas>
+
+    <!-- Gradient Orbs -->
+    <div class="orb w-96 h-96"  id="orb1" style="background:#D4C8A0; top:8%;   left:3%;  opacity:.4;"></div>
+    <div class="orb w-72 h-72"  id="orb2" style="background:#A8C0D8; bottom:12%; right:4%; opacity:.3;"></div>
+    <div class="orb w-56 h-56"  id="orb3" style="background:#B89028; top:55%;  left:42%; opacity:.1;"></div>
+
+    <div id="hero-body" class="relative z-10 w-full max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 items-center" style="min-height:100vh;padding-top:7rem;padding-bottom:5rem;">
+
+        <!-- LEFT: Text content -->
+        <div class="order-2 md:order-1 text-center md:text-left">
+          <div class="label mb-5 sr" style="--d:0s">Hello, World — I'm</div>
+
+          <h1 class="font-serif font-bold leading-tight mb-5 sr" style="--d:.1s;font-size:clamp(2.4rem,5.5vw,5rem);">
+            <span class="grad">Reamy Womodowe</span><br>
+            <span style="color:var(--text-hi);">Achirobe</span>
+          </h1>
+
+          <p class="text-lg md:text-xl font-mono mb-6 h-9 flex items-center justify-center md:justify-start gap-0 sr" style="--d:.2s;color:var(--text-lo);">
+            <span id="typed"></span><span class="cursor"></span>
+          </p>
+
+          <p class="max-w-lg mb-10 text-base md:text-lg leading-relaxed sr" style="--d:.3s;color:var(--text-lo);">
+            Mechanical Engineer · CFD &amp; Physics-Based Modelling · <strong style="color:#18305A;">Faculty Intern, Ashesi University</strong>
+            · Research Consultant at <strong style="color:#7A5E14;">Klerconsult</strong> — building ML systems that make African solar energy more reliable.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8 sr" style="--d:.4s;">
+            <a href="#projects" class="btn-primary">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              View Research
+            </a>
+            <a href="#contact" class="btn-outline">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              Get In Touch
+            </a>
+          </div>
+
+          <div class="flex gap-3 justify-center md:justify-start sr" style="--d:.5s;">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="glass p-2.5 cursor-pointer" style="border-radius:10px;">
+              <svg class="w-5 h-5" style="color:#2A4A7A;" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/achirobe" target="_blank" rel="noopener" aria-label="GitHub" class="glass p-2.5 cursor-pointer" style="border-radius:10px;">
+              <svg class="w-5 h-5" style="color:#18305A;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://researchgate.net" target="_blank" rel="noopener" aria-label="ResearchGate" class="glass p-2.5 cursor-pointer" style="border-radius:10px;">
+              <svg class="w-5 h-5" style="color:#1A6B40;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </a>
+            <a href="https://scholar.google.com" target="_blank" rel="noopener" aria-label="Google Scholar" class="glass p-2.5 cursor-pointer" style="border-radius:10px;">
+              <svg class="w-5 h-5" style="color:#7A5E14;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </a>
+            <a href="mailto:rachirobe@gmail.com" aria-label="Email" class="glass p-2.5 cursor-pointer" style="border-radius:10px;">
+              <svg class="w-5 h-5" style="color:#991B1B;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: Hero Portrait -->
+        <div class="order-1 md:order-2 flex justify-center md:justify-end sr" style="--d:.15s;">
+          <div class="relative">
+            <!-- Main photo card -->
+            <div class="relative overflow-hidden" style="width:min(320px,80vw);height:min(420px,105vw);border-radius:20px;border:1px solid rgba(24,48,90,.3);box-shadow:0 0 70px rgba(24,48,90,.18), 0 0 120px rgba(150,118,30,.1);">
+              <img src="images/photo-hero.jpg"
+                   alt="Reamy Womodowe Achirobe — MPhil Researcher"
+                   style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+              <!-- Bottom gradient overlay -->
+              <div style="position:absolute;bottom:0;left:0;right:0;height:130px;background:linear-gradient(to top,rgba(3,7,18,.9) 0%,transparent 100%);"></div>
+              <!-- Bottom label -->
+              <div style="position:absolute;bottom:16px;left:18px;">
+                <p class="font-mono text-xs mb-0.5" style="color:rgba(255,255,255,.9);">MPhil Researcher</p>
+                <p class="font-mono text-xs" style="color:rgba(255,255,255,.55);">KNUST · Ghana</p>
+              </div>
+            </div>
+
+            <!-- Top-right corner accent -->
+            <div style="position:absolute;top:-10px;right:-10px;width:70px;height:70px;border-top:2px solid rgba(24,48,90,.5);border-right:2px solid rgba(24,48,90,.5);border-radius:0 14px 0 0;pointer-events:none;"></div>
+            <!-- Bottom-left corner accent -->
+            <div style="position:absolute;bottom:-10px;left:-10px;width:70px;height:70px;border-bottom:2px solid rgba(150,118,30,.5);border-left:2px solid rgba(150,118,30,.5);border-radius:0 0 0 14px;pointer-events:none;"></div>
+
+            <!-- Floating status badge -->
+            <div class="glass" style="position:absolute;bottom:28px;right:-18px;padding:.55rem 1rem;white-space:nowrap;border-radius:10px;box-shadow:0 0 20px rgba(24,48,90,.2);">
+              <div class="flex items-center gap-2">
+                <div style="width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 6px #4ADE80;animation:blink 2s ease-in-out infinite;"></div>
+                <span class="font-mono text-xs" style="color:var(--text-mid);">Open to Collaborate</span>
+              </div>
+            </div>
+
+            <!-- Floating research badge -->
+            <div class="glass" style="position:absolute;top:24px;left:-20px;padding:.55rem 1rem;white-space:nowrap;border-radius:10px;box-shadow:0 0 20px rgba(150,118,30,.2);">
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5" style="color:#7A5E14;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span class="font-mono text-xs" style="color:var(--text-mid);">SDCNN Research</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce" style="color:var(--text-lo);">
+      <span class="label" style="font-size:.65rem;">scroll</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ABOUT                                                         -->
+  <!-- ============================================================ -->
+  <section id="about" class="section">
+    <div class="max-w-6xl mx-auto">
+      <div class="label mb-3 text-center sr">01 — About</div>
+      <h2 class="font-serif font-bold text-center mb-16 sr" style="font-size:clamp(2rem,5vw,3.2rem);">
+        The <span class="grad">Researcher</span> Behind the Work
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <!-- Left: photo + stats -->
+        <div class="flex flex-col items-center gap-8 sr-left">
+          <!-- Photo -->
+          <div class="relative">
+            <div class="photo-wrap glow-pulse float" style="overflow:hidden;">
+              <img src="images/photo-headshot.jpg"
+                   alt="Reamy Womodowe Achirobe"
+                   style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;" />
+            </div>
+            <!-- Rotating rings -->
+            <div class="ring-cw"  style="position:absolute;inset:-14px;border:2px dashed rgba(24,48,90,.2);border-radius:50%;"></div>
+            <div class="ring-ccw" style="position:absolute;inset:-28px;border:1px solid rgba(150,118,30,.12);border-radius:50%;"></div>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-3 w-full max-w-xs">
+            <div class="glass p-4 text-center">
+              <div class="stat-n grad" data-count="4">0</div>
+              <div class="text-xs mt-1 font-mono" style="color:var(--text-lo);">Papers</div>
+            </div>
+            <div class="glass p-4 text-center">
+              <div class="stat-n grad" data-count="3">0</div>
+              <div class="text-xs mt-1 font-mono" style="color:var(--text-lo);">Awards</div>
+            </div>
+            <div class="glass p-4 text-center">
+              <div class="stat-n grad" data-count="6">0</div>
+              <div class="text-xs mt-1 font-mono" style="color:var(--text-lo);">Yrs Exp.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: bio -->
+        <div class="sr-right">
+          <h3 class="font-serif text-2xl font-semibold mb-4" style="color:var(--text-hi);">
+            CFD, Physics-Based Modelling &amp; Machine Learning for Energy Systems
+          </h3>
+          <p class="mb-4 leading-relaxed" style="color:var(--text-mid);">
+            I am a mechanical engineer and <strong style="color:#18305A;">MPhil graduate (Highest CWA, Department of Mechanical Engineering)</strong> from KNUST, Ghana, currently serving as
+            <strong style="color:#18305A;">Faculty Intern in CFD and Fluid Mechanics at Ashesi University</strong> and as a Research Consultant at Klerconsult. My MPhil was fully funded by the <strong style="color:#7A5E14;">KEEP Scholarship</strong>.
+          </p>
+          <p class="mb-4 leading-relaxed" style="color:var(--text-mid);">
+            My research sits at the intersection of <strong style="color:#7A5E14;">computational fluid dynamics</strong>, <strong style="color:#7A5E14;">physics-based modelling</strong>, and <strong style="color:#2A4A7A;">machine learning for energy systems</strong> — from building custom neural networks in Python/TensorFlow to running multi-physics simulations in ANSYS Fluent and conducting experimental multiphase flow diagnostics in Germany under a <strong style="color:#7A5E14;">DAAD Research Grant</strong>.
+          </p>
+          <p class="mb-6 leading-relaxed" style="color:var(--text-mid);">
+            My flagship work, <strong style="color:#18305A;">SDCNN</strong> (Shallow Dense Convolutional Neural Network), is the first IRT-based PV fault detection study combining 5-fold CV, three baseline comparisons, Grad-CAM explainability, and zero-shot cross-domain testing — applied to Ghana's 2.5 MW Navrongo VRA Solar Plant.
+          </p>
+
+          <!-- Awards chips -->
+          <div class="flex flex-col gap-2 mb-5">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0" style="color:#7A5E14;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span class="text-sm" style="color:var(--text-mid);">Highest CWA, Dept. of Mechanical Engineering — MPhil Class of 2025, KNUST</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0" style="color:#7A5E14;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span class="text-sm" style="color:var(--text-mid);">KEEP Scholarship — Full MPhil funding, KNUST 2023–2025</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0" style="color:#7A5E14;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span class="text-sm" style="color:var(--text-mid);">DAAD Research Internship Grant — FAU Erlangen-Nürnberg, Germany 2024</span>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2 mb-7">
+            <span class="tag">CFD · ANSYS Fluent</span>
+            <span class="tag">Thermofluids</span>
+            <span class="tag tag-purple">Deep Learning</span>
+            <span class="tag tag-purple">Computer Vision</span>
+            <span class="tag tag-cyan">Solar PV · IRT</span>
+            <span class="tag tag-cyan">Digital Twins</span>
+            <span class="tag">Physics-Informed ML</span>
+            <span class="tag">Ghana</span>
+          </div>
+
+          <a href="CV_Achirobe.pdf" download class="btn-primary">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PHOTO GALLERY STRIP                                           -->
+  <!-- ============================================================ -->
+  <section style="padding:0 0 5rem 0;overflow:hidden;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="label mb-4 text-center sr" style="color:var(--text-lo);">Behind the Lens</div>
+      <div class="grid grid-cols-3 gap-4 sr">
+        <!-- Arms crossed — direct -->
+        <div class="relative overflow-hidden cursor-pointer group" style="border-radius:16px;aspect-ratio:3/4;border:1px solid var(--glass-border);transition:box-shadow .3s ease,transform .3s ease;" onmouseover="this.style.boxShadow='0 0 40px rgba(24,48,90,.3)';this.style.transform='scale(1.02)'" onmouseout="this.style.boxShadow='none';this.style.transform='scale(1)'">
+          <img src="images/photo-arms-crossed.jpg"
+               alt="Reamy Womodowe Achirobe — professional photo"
+               style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease;"
+               onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,7,18,.7) 0%,transparent 60%);pointer-events:none;"></div>
+          <div style="position:absolute;bottom:12px;left:12px;">
+            <span class="tag" style="font-size:.65rem;">Portrait</span>
+          </div>
+        </div>
+
+        <!-- Full body 1 — taller card, slightly elevated -->
+        <div class="relative overflow-hidden cursor-pointer" style="border-radius:16px;aspect-ratio:3/4;border:1px solid rgba(150,118,30,.25);transform:translateY(-12px);transition:box-shadow .3s ease,transform .3s ease;" onmouseover="this.style.boxShadow='0 0 40px rgba(150,118,30,.3)';this.style.transform='translateY(-18px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(-12px)'">
+          <img src="images/photo-fullbody-1.jpg"
+               alt="Reamy Womodowe Achirobe — full body professional"
+               style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease;"
+               onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,7,18,.7) 0%,transparent 60%);pointer-events:none;"></div>
+          <div style="position:absolute;bottom:12px;left:12px;">
+            <span class="tag tag-purple" style="font-size:.65rem;">Full Body</span>
+          </div>
+        </div>
+
+        <!-- Full body 2 — slightly different angle -->
+        <div class="relative overflow-hidden cursor-pointer" style="border-radius:16px;aspect-ratio:3/4;border:1px solid rgba(42,74,122,.2);transition:box-shadow .3s ease,transform .3s ease;" onmouseover="this.style.boxShadow='0 0 40px rgba(42,74,122,.25)';this.style.transform='scale(1.02)'" onmouseout="this.style.boxShadow='none';this.style.transform='scale(1)'">
+          <img src="images/photo-fullbody-2.jpg"
+               alt="Reamy Womodowe Achirobe — professional pose"
+               style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease;"
+               onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,7,18,.7) 0%,transparent 60%);pointer-events:none;"></div>
+          <div style="position:absolute;bottom:12px;left:12px;">
+            <span class="tag tag-cyan" style="font-size:.65rem;">Professional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- RESEARCH                                                      -->
+  <!-- ============================================================ -->
+  <section id="research" class="section" style="background:linear-gradient(180deg,transparent,rgba(24,48,90,.04),transparent);">
+    <div class="max-w-6xl mx-auto">
+      <div class="label mb-3 text-center sr">02 — Research</div>
+      <h2 class="font-serif font-bold text-center mb-4 sr" style="font-size:clamp(2rem,5vw,3.2rem);">
+        Publications &amp; <span class="grad">Research Work</span>
+      </h2>
+      <p class="text-center mb-14 max-w-xl mx-auto sr" style="color:var(--text-lo);">
+        Peer-reviewed contributions advancing renewable energy diagnostics through applied machine learning.
+      </p>
+
+      <div class="space-y-5">
+
+        <!-- Paper 1 — SDCNN FLAGSHIP -->
+        <div class="glass r-card p-6 sr" style="--d:.05s;">
+          <div class="flex flex-col md:flex-row md:items-start gap-5">
+            <div class="icon-box flex-shrink-0" style="background:linear-gradient(135deg,rgba(24,48,90,.25),rgba(150,118,30,.25));border:1px solid rgba(24,48,90,.3);">
+              <svg class="w-5 h-5" style="color:#18305A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap gap-2 mb-2">
+                <span class="tag" style="background:rgba(24,48,90,.12);">Submitted 2026 · Under Review</span>
+                <span class="tag tag-cyan">Eng. Applications of AI · 2025</span>
+              </div>
+              <h3 class="font-serif text-xl font-semibold mb-2" style="color:var(--text-hi);">
+                SDCNN: A Shallow Dense Convolutional Neural Network for Automated Fault Detection and Diagnosis in Photovoltaic Systems via Infrared Thermography
+              </h3>
+              <p class="text-sm leading-relaxed mb-3" style="color:var(--text-lo);">
+                Custom three-block CNN trained from scratch (no ImageNet) on 228 detection + 86 diagnosis IRT images from the 2.5 MW Navrongo VRA Solar Plant, Ghana. Achieves a mean detection F1 of <strong style="color:#18305A;">0.884 ± 0.064</strong> and a perfect diagnosis F1 of <strong style="color:#1A6B40;">1.000 ± 0.000</strong> under 5-fold stratified CV — benchmarked against VGG-16, MobileNetV2, and EfficientNet-B0 with paired t-tests, Wilcoxon signed-rank tests, and Cohen's d. Grad-CAM explainability + zero-shot cross-domain test on Italian dataset (137 images). Trains in under 5 minutes per fold on Apple M1, no GPU.
+              </p>
+              <div class="flex flex-wrap gap-2 items-center">
+                <span class="font-mono text-xs" style="color:var(--text-lo);">Achirobe, R.W., Mensah, L.D., Tay, G.F.K., Adaramola, M.S.</span>
+                <span class="tag">IRT · FLIR C5</span><span class="tag tag-purple">CNN from Scratch</span><span class="tag tag-cyan">Grad-CAM</span><span class="tag">Navrongo, Ghana</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paper 2 — Digital Twins Mobility -->
+        <div class="glass r-card p-6 sr" style="--d:.1s;">
+          <div class="flex flex-col md:flex-row md:items-start gap-5">
+            <div class="icon-box flex-shrink-0" style="background:linear-gradient(135deg,rgba(150,118,30,.25),rgba(42,74,122,.25));border:1px solid rgba(150,118,30,.3);">
+              <svg class="w-5 h-5" style="color:#7A5E14;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap gap-2 mb-2">
+                <span class="tag tag-purple">Journal Article · Accepted</span>
+                <span class="tag">IJIRCT · 2026</span>
+              </div>
+              <h3 class="font-serif text-xl font-semibold mb-2" style="color:var(--text-hi);">
+                Computer Vision Centric Digital Twins for Intelligent Mobility: Simulation of Object Detection and Scene Segmentation
+              </h3>
+              <p class="text-sm leading-relaxed mb-3" style="color:var(--text-lo);">
+                Computer vision framework integrating object detection and scene segmentation within digital twin environments for intelligent mobility applications. Demonstrates simulation-to-real transfer for autonomous navigation scenarios.
+              </p>
+              <div class="flex flex-wrap gap-2 items-center">
+                <span class="font-mono text-xs" style="color:var(--text-lo);">Achirobe, R.W. and Osei, D.A. · 2026</span>
+                <span class="tag tag-purple">Digital Twins</span><span class="tag tag-cyan">Object Detection</span><span class="tag">Scene Segmentation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paper 3 — Physics-based Digital Twin -->
+        <div class="glass r-card p-6 sr" style="--d:.15s;">
+          <div class="flex flex-col md:flex-row md:items-start gap-5">
+            <div class="icon-box flex-shrink-0" style="background:linear-gradient(135deg,rgba(42,74,122,.25),rgba(24,48,90,.25));border:1px solid rgba(42,74,122,.3);">
+              <svg class="w-5 h-5" style="color:#2A4A7A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap gap-2 mb-2">
+                <span class="tag tag-cyan">In Preparation · 2026</span>
+                <span class="tag">Physics-Informed ML</span>
+              </div>
+              <h3 class="font-serif text-xl font-semibold mb-2" style="color:var(--text-hi);">
+                A Physics-Based Digital Twin for Photovoltaic Hotspot Degradation Coupling Thermal Conduction with Arrhenius Kinetics
+              </h3>
+              <p class="text-sm leading-relaxed mb-3" style="color:var(--text-lo);">
+                Physics-informed model coupling heat transfer equations with Arrhenius degradation kinetics for predictive PV hotspot modelling. Bridges data-driven and first-principles approaches for long-horizon degradation forecasting at cell and module level.
+              </p>
+              <div class="flex flex-wrap gap-2 items-center">
+                <span class="font-mono text-xs" style="color:var(--text-lo);">Achirobe, R.W. et al. · In preparation</span>
+                <span class="tag">Arrhenius Kinetics</span><span class="tag tag-purple">Heat Transfer</span><span class="tag tag-cyan">PV Degradation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paper 4 — Conference Solar Tracker -->
+        <div class="glass r-card p-6 sr" style="--d:.2s;">
+          <div class="flex flex-col md:flex-row md:items-start gap-5">
+            <div class="icon-box flex-shrink-0" style="background:linear-gradient(135deg,rgba(234,179,8,.2),rgba(249,115,22,.2));border:1px solid rgba(234,179,8,.3);">
+              <svg class="w-5 h-5" style="color:#7A5E14;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap gap-2 mb-2">
+                <span class="tag" style="background:rgba(120,88,12,.08);color:#7A5E14;border-color:rgba(120,88,12,.2);">Conference Paper · Submitted</span>
+                <span class="tag">ICSSID 2026 · Paper ID: 188</span>
+              </div>
+              <h3 class="font-serif text-xl font-semibold mb-2" style="color:var(--text-hi);">
+                Dual Axis Solar Tracker with Low Operating Power Consumption
+              </h3>
+              <p class="text-sm leading-relaxed mb-3" style="color:var(--text-lo);">
+                Design and experimental evaluation of a dual-axis solar tracking system engineered for minimal parasitic power draw — improving energy yield for off-grid installations where auxiliary power budgets are constrained.
+              </p>
+              <div class="flex flex-wrap gap-2 items-center">
+                <span class="font-mono text-xs" style="color:var(--text-lo);">Afari, A.A., Fiagbe, Y.A.K., Ramde, E.W., Alhassan, S.T., Quansah, E., Achirobe, R.W.</span>
+                <span class="tag">Solar Tracking</span><span class="tag tag-cyan">Energy Yield</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SKILLS                                                        -->
+  <!-- ============================================================ -->
+  <section id="skills" class="section">
+    <div class="max-w-6xl mx-auto">
+      <div class="label mb-3 text-center sr">03 — Expertise</div>
+      <h2 class="font-serif font-bold text-center mb-14 sr" style="font-size:clamp(2rem,5vw,3.2rem);">
+        Technical <span class="grad">Skills</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-14">
+        <!-- Engineering & CFD -->
+        <div class="sr-left">
+          <h3 class="font-serif text-lg font-semibold mb-6" style="color:var(--text-hi);">CFD &amp; Engineering</h3>
+          <div class="space-y-5">
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">ANSYS Fluent · SpaceClaim · Discovery</span><span class="font-mono" style="color:var(--blue);">93%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="93"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">Turbulence Modelling (k–ω SST, k–ε)</span><span class="font-mono" style="color:var(--blue);">90%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="90"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">Thermofluids &amp; Heat &amp; Mass Transfer</span><span class="font-mono" style="color:var(--blue);">91%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="91"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">IRT · FLIR C5 · Pressure Transducers</span><span class="font-mono" style="color:var(--blue);">88%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="88"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">MATLAB · Numerical Analysis</span><span class="font-mono" style="color:var(--blue);">84%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="84"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI/ML -->
+        <div class="sr-right">
+          <h3 class="font-serif text-lg font-semibold mb-6" style="color:var(--text-hi);">ML &amp; Physics-Informed Modelling</h3>
+          <div class="space-y-5">
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">CNN Architecture · TensorFlow · Keras</span><span class="font-mono" style="color:var(--gold);">92%</span></div>
+              <div class="bar-track"><div class="bar-fill alt" data-w="92"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">Physics-Informed ML · Surrogate Modelling</span><span class="font-mono" style="color:var(--gold);">86%</span></div>
+              <div class="bar-track"><div class="bar-fill alt" data-w="86"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">Computer Vision · Grad-CAM · FIJI</span><span class="font-mono" style="color:var(--gold);">88%</span></div>
+              <div class="bar-track"><div class="bar-fill alt" data-w="88"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">FFT Signal Processing · NumPy · SciPy</span><span class="font-mono" style="color:var(--gold);">87%</span></div>
+              <div class="bar-track"><div class="bar-fill alt" data-w="87"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span style="color:var(--text-mid);">Statistical Testing (t-tests, Wilcoxon, Cohen's d)</span><span class="font-mono" style="color:var(--gold);">89%</span></div>
+              <div class="bar-track"><div class="bar-fill alt" data-w="89"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tool chips -->
+      <div class="mt-14 sr">
+        <h3 class="font-serif text-lg font-semibold mb-6 text-center" style="color:var(--text-hi);">Tools &amp; Technologies</h3>
+        <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3">
+          <div class="chip" style="background:rgba(24,48,90,.12);color:#18305A;border:1px solid rgba(24,48,90,.2);">Python</div>
+          <div class="chip" style="background:rgba(249,115,22,.10);color:#9A3412;border:1px solid rgba(249,115,22,.2);">TensorFlow</div>
+          <div class="chip" style="background:rgba(236,72,153,.10);color:#9D174D;border:1px solid rgba(236,72,153,.2);">Keras</div>
+          <div class="chip" style="background:rgba(234,179,8,.10);color:#7A5E14;border:1px solid rgba(234,179,8,.2);">MATLAB</div>
+          <div class="chip" style="background:rgba(20,184,166,.10);color:#0F766E;border:1px solid rgba(20,184,166,.2);">ANSYS Fluent</div>
+          <div class="chip" style="background:rgba(99,102,241,.10);color:#3730A3;border:1px solid rgba(99,102,241,.2);">SpaceClaim</div>
+          <div class="chip" style="background:rgba(42,74,122,.10);color:#2A4A7A;border:1px solid rgba(42,74,122,.2);">OpenCV</div>
+          <div class="chip" style="background:rgba(34,197,94,.10);color:#15803D;border:1px solid rgba(34,197,94,.2);">NumPy</div>
+          <div class="chip" style="background:rgba(150,118,30,.12);color:#7A5E14;border:1px solid rgba(150,118,30,.2);">Pandas</div>
+          <div class="chip" style="background:rgba(236,72,153,.10);color:#9D174D;border:1px solid rgba(236,72,153,.15);">Sklearn</div>
+          <div class="chip" style="background:rgba(24,48,90,.10);color:#18305A;border:1px solid rgba(24,48,90,.15);">FLIR C5</div>
+          <div class="chip" style="background:rgba(249,115,22,.10);color:#9A3412;border:1px solid rgba(249,115,22,.15);">FIJI · ImageJ</div>
+          <div class="chip" style="background:rgba(148,163,184,.08);color:#334155;border:1px solid rgba(148,163,184,.15);">LaTeX</div>
+          <div class="chip" style="background:rgba(34,197,94,.10);color:#15803D;border:1px solid rgba(34,197,94,.15);">SciPy</div>
+          <div class="chip" style="background:rgba(24,48,90,.10);color:#18305A;border:1px solid rgba(24,48,90,.15);">Git · GitHub</div>
+          <div class="chip" style="background:rgba(150,118,30,.10);color:#7A5E14;border:1px solid rgba(150,118,30,.15);">SQL · Excel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PROJECTS                                                      -->
+  <!-- ============================================================ -->
+  <section id="projects" class="section" style="background:linear-gradient(180deg,transparent,rgba(150,118,30,.04),transparent);">
+    <div class="max-w-6xl mx-auto">
+      <div class="label mb-3 text-center sr">04 — Projects</div>
+      <h2 class="font-serif font-bold text-center mb-4 sr" style="font-size:clamp(2rem,5vw,3.2rem);">
+        Featured <span class="grad">Work</span>
+      </h2>
+      <p class="text-center mb-14 max-w-xl mx-auto sr" style="color:var(--text-lo);">
+        Research projects combining classical engineering fundamentals with cutting-edge AI methods.
+      </p>
+
+      <!-- FLAGSHIP: SDCNN -->
+      <div class="glass p-8 mb-8 sr" style="border-color:rgba(24,48,90,.3);">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <!-- Visual -->
+          <div>
+            <!-- 2×2 grid of real IRT images from Navrongo VRA dataset -->
+            <div>
+              <div class="grid grid-cols-2 gap-2 mb-2">
+                <div class="relative overflow-hidden rounded-lg" style="aspect-ratio:4/3;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 8px rgba(0,0,0,.08);">
+                  <img src="images/irt-nonfaulty.jpg" alt="Non-faulty PV module — uniform thermal distribution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                  <div style="position:absolute;bottom:0;left:0;right:0;padding:.3rem .5rem;background:rgba(0,0,0,.55);">
+                    <p class="font-mono" style="font-size:.58rem;color:#fff;letter-spacing:.05em;">NON-FAULTY · Uniform Temp.</p>
+                  </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg" style="aspect-ratio:4/3;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 8px rgba(0,0,0,.08);">
+                  <img src="images/irt-faulty.jpg" alt="Faulty PV module — thermal hotspots detected" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                  <div style="position:absolute;bottom:0;left:0;right:0;padding:.3rem .5rem;background:rgba(180,20,20,.65);">
+                    <p class="font-mono" style="font-size:.58rem;color:#fff;letter-spacing:.05em;">FAULTY · Hotspot Anomalies</p>
+                  </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg" style="aspect-ratio:4/3;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 8px rgba(0,0,0,.08);">
+                  <img src="images/irt-block.jpg" alt="Block fault — vertical stripe thermal pattern" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                  <div style="position:absolute;bottom:0;left:0;right:0;padding:.3rem .5rem;background:rgba(0,0,0,.55);">
+                    <p class="font-mono" style="font-size:.58rem;color:#fff;letter-spacing:.05em;">DIAGNOSIS · Block Fault</p>
+                  </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg" style="aspect-ratio:4/3;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 8px rgba(0,0,0,.08);">
+                  <img src="images/irt-patchwork.jpg" alt="PatchWork fault — patchy thermal anomalies" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                  <div style="position:absolute;bottom:0;left:0;right:0;padding:.3rem .5rem;background:rgba(0,0,0,.55);">
+                    <p class="font-mono" style="font-size:.58rem;color:#fff;letter-spacing:.05em;">DIAGNOSIS · PatchWork Fault</p>
+                  </div>
+                </div>
+              </div>
+              <p class="font-mono text-center" style="font-size:.62rem;color:var(--text-lo);letter-spacing:.08em;">FLIR C5 IRT Images · 2.5 MW Navrongo VRA Solar Plant, Ghana</p>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="tag" style="background:rgba(24,48,90,.2);">Flagship · MPhil Thesis</span>
+              <span class="tag tag-cyan">Eng. Applications of AI · Submitted 2026</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold mb-3" style="color:var(--text-hi);">
+              SDCNN: Shallow Dense CNN for IRT-Based PV Fault Detection
+            </h3>
+            <p class="text-sm leading-relaxed mb-5" style="color:var(--text-mid);">
+              A <strong style="color:#18305A;">Shallow Dense Convolutional Neural Network</strong> trained from scratch on 314 IRT images from Ghana's 2.5 MW Navrongo VRA Solar Plant — the first PV fault detection study from Sub-Saharan Africa combining 5-fold CV, three independent baselines (VGG-16, MobileNetV2, EfficientNet-B0), Grad-CAM explainability, and zero-shot cross-domain testing. Runs entirely on an Apple M1 laptop — no GPU needed.
+            </p>
+
+            <!-- Real Metrics -->
+            <div class="grid grid-cols-3 gap-3 mb-5">
+              <div class="metric" style="background:rgba(24,48,90,.1);">
+                <div class="font-serif text-2xl font-bold" style="color:#18305A;">0.884</div>
+                <div class="text-xs mt-0.5" style="color:var(--text-lo);">Detection F1 ± 0.064</div>
+              </div>
+              <div class="metric" style="background:rgba(34,197,94,.1);">
+                <div class="font-serif text-2xl font-bold" style="color:#1A6B40;">1.000</div>
+                <div class="text-xs mt-0.5" style="color:var(--text-lo);">Diagnosis F1 ± 0.000</div>
+              </div>
+              <div class="metric" style="background:rgba(150,118,30,.1);">
+                <div class="font-serif text-2xl font-bold" style="color:#7A5E14;">&lt;5 min</div>
+                <div class="text-xs mt-0.5" style="color:var(--text-lo);">per fold · Apple M1</div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tag">Python · TensorFlow</span>
+              <span class="tag tag-purple">CNN from Scratch</span>
+              <span class="tag tag-cyan">Grad-CAM · XAI</span>
+              <span class="tag">FLIR C5 · IRT</span>
+              <span class="tag">5-fold CV</span>
+              <span class="tag">Navrongo, Ghana</span>
+            </div>
+
+            <a href="#contact" class="btn-primary text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              Request Full Paper
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary projects -->
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Physics-based Digital Twin -->
+        <div class="glass p-6 sr" style="--d:.1s;">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="icon-box" style="background:linear-gradient(135deg,rgba(42,74,122,.2),rgba(24,48,90,.2));border:1px solid rgba(42,74,122,.25);">
+              <svg class="w-5 h-5" style="color:#2A4A7A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+              <div class="flex gap-2 mb-1.5">
+                <span class="tag tag-cyan">In Preparation · 2026</span>
+              </div>
+              <h3 class="font-serif text-lg font-semibold" style="color:var(--text-hi);">Physics-Based Digital Twin for PV Hotspot Degradation</h3>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-lo);">
+            Physics-informed model coupling thermal conduction equations with Arrhenius degradation kinetics to predict long-horizon hotspot growth and module-level degradation — bridging first-principles and data-driven approaches for PV asset management.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag">Physics-Informed ML</span><span class="tag tag-purple">Arrhenius Kinetics</span><span class="tag">Python</span>
+          </div>
+        </div>
+
+        <!-- DAAD Multiphase Flow -->
+        <div class="glass p-6 sr" style="--d:.18s;">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="icon-box" style="background:linear-gradient(135deg,rgba(150,118,30,.2),rgba(42,74,122,.2));border:1px solid rgba(150,118,30,.25);">
+              <svg class="w-5 h-5" style="color:#7A5E14;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <div>
+              <div class="flex gap-2 mb-1.5">
+                <span class="tag tag-purple">DAAD-Funded · Germany</span>
+              </div>
+              <h3 class="font-serif text-lg font-semibold" style="color:var(--text-hi);">Multiphase Flow Diagnostics — FAU Erlangen-Nürnberg</h3>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-lo);">
+            DAAD-funded research at the DAAD-funded research at the Chair for Energy Process Engineering, FAU Erlangen-Nürnberg (Feb–Sep 2024): characterised fluidised bed hydrodynamics using dual-side pressure transducers, high-speed imaging, and optical diagnostics. Developed FFT-based predictor schemes for particle agglomeration adopted by the research group.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag">ANSYS Fluent</span><span class="tag">FFT · NumPy</span><span class="tag tag-cyan">FIJI · Optical Diagnostics</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- EXPERIENCE                                                    -->
+  <!-- ============================================================ -->
+  <section id="experience" class="section" style="background:linear-gradient(180deg,transparent,rgba(150,118,30,.03),transparent);">
+    <div class="max-w-4xl mx-auto">
+      <div class="label mb-3 text-center sr">05 — Experience</div>
+      <h2 class="font-serif font-bold text-center mb-14 sr" style="font-size:clamp(2rem,5vw,3.2rem);">
+        Research &amp; <span class="grad">Teaching</span>
+      </h2>
+
+      <div style="border-left:1px solid rgba(24,48,90,.25);padding-left:2rem;margin-left:.5rem;">
+
+        <!-- Ashesi -->
+        <div class="tl-item mb-8 sr" style="--d:.05s;">
+          <div class="tl-line"></div>
+          <div class="glass p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-semibold" style="color:var(--text-hi);">Faculty Intern — CFD &amp; Fluid Mechanics</h3>
+                <p style="color:#18305A;font-weight:500;font-size:.9rem;">Ashesi University, Berekuso, Ghana</p>
+              </div>
+              <span class="tag whitespace-nowrap self-start">Jan 2026 – Present</span>
+            </div>
+            <ul class="text-sm space-y-1.5" style="color:var(--text-lo);">
+              <li>Designed and deliver CFD (ME 431) and Fluid Mechanics (ME 432) end-to-end using ANSYS Fluent 2025 R2 — external flow, converging–diverging nozzle, and airfoil aerodynamics</li>
+              <li>Implemented k–ω SST and k–ε turbulence models; wrote simulation guides, problem sets, and exam papers</li>
+              <li>100% student completion rate — took students from zero simulation experience to multi-physics ANSYS Fluent analyses</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Klerconsult -->
+        <div class="tl-item mb-8 sr" style="--d:.1s;">
+          <div class="tl-line"></div>
+          <div class="glass p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-semibold" style="color:var(--text-hi);">Research Consultant</h3>
+                <p style="color:#7A5E14;font-weight:500;font-size:.9rem;">Klerconsult, Ghana</p>
+              </div>
+              <span class="tag whitespace-nowrap self-start">Ongoing</span>
+            </div>
+            <p class="text-sm" style="color:var(--text-lo);">Applied research consulting across energy systems modelling, computational methods, and data-driven diagnostics.</p>
+          </div>
+        </div>
+
+        <!-- KNUST Graduate Researcher -->
+        <div class="tl-item mb-8 sr" style="--d:.15s;">
+          <div class="tl-line"></div>
+          <div class="glass p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-semibold" style="color:var(--text-hi);">Graduate Researcher — ML &amp; Digital Twins for Energy Systems</h3>
+                <p style="color:#2A4A7A;font-weight:500;font-size:.9rem;">KNUST, Kumasi, Ghana</p>
+              </div>
+              <span class="tag whitespace-nowrap self-start">2023 – 2025</span>
+            </div>
+            <ul class="text-sm space-y-1.5" style="color:var(--text-lo);">
+              <li>Developed SDCNN for automated PV fault detection from IRT images — detection F1 0.884, diagnosis F1 1.000 under 5-fold CV; benchmarked against VGG-16, MobileNetV2, EfficientNet-B0</li>
+              <li>Built physics-based digital twin coupling thermal conduction with Arrhenius degradation kinetics for hotspot prediction</li>
+              <li>Collaborated with Prof. M.S. Adaramola (NMBU, Norway) and the Energy Commission of Ghana</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DAAD Erlangen -->
+        <div class="tl-item mb-8 sr" style="--d:.2s;">
+          <div class="tl-line"></div>
+          <div class="glass p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-semibold" style="color:var(--text-hi);">Research Assistant — DAAD-Funded Multiphase Flow Project</h3>
+                <p style="color:#7A5E14;font-weight:500;font-size:.9rem;">Chair for Energy Process Engineering, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), Germany</p>
+              </div>
+              <span class="tag whitespace-nowrap self-start">Feb – Sep 2024</span>
+            </div>
+            <ul class="text-sm space-y-1.5" style="color:var(--text-lo);">
+              <li>Characterised fluidised bed hydrodynamics using dual-side pressure transducers, high-speed video, and optical diagnostics (FIJI)</li>
+              <li>Applied FFT-based signal processing (Python/NumPy) for bubble formation and particle agglomeration studies</li>
+              <li>Developed and validated predictor schemes for particle agglomeration — standardised measurement protocol adopted by the research group</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- National Service -->
+        <div class="tl-item sr" style="--d:.25s;">
+          <div class="glass p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-semibold" style="color:var(--text-hi);">National Service — Mechanical Systems Engineering</h3>
+                <p style="color:var(--text-lo);font-weight:500;font-size:.9rem;">Denys Engineers and Contractors, Ghana</p>
+              </div>
+              <span class="tag whitespace-nowrap self-start">2020 – 2021</span>
+            </div>
+            <p class="text-sm" style="color:var(--text-lo);">Led installation, commissioning, and maintenance of centrifugal pumps and pipeline systems across multiple client sites.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- EDUCATION                                                     -->
+  <!-- ============================================================ -->
+  <section id="education" class="section">
+    <div class="max-w-4xl mx-auto">
+      <div class="label mb-3 text-center sr">06 — Background</div>
+      <h2 class="font-serif font-bold text-center mb-14 sr" style="font-size:clamp(2rem,5vw,3.2rem);">
+        Education &amp; <span class="grad">Training</span>
+      </h2>
+
+      <div style="border-left:1px solid rgba(24,48,90,.25);padding-left:2rem;margin-left:.5rem;">
+
+        <!-- MPhil -->
+        <div class="tl-item mb-8 sr" style="--d:.05s;">
+          <div class="tl-line"></div>
+          <div class="glass p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-semibold" style="color:var(--text-hi);">MPhil, Mechanical Engineering</h3>
+                <p style="color:#18305A;font-weight:500;font-size:.9rem;">Thermofluids &amp; Energy Systems — <strong style="color:#7A5E14;">Highest CWA, Dept. of Mechanical Engineering · KEEP Scholarship</strong></p>
+              </div>
+              <span class="tag whitespace-nowrap self-start">2023 – 2025</span>
+            </div>
+            <p class="text-sm mb-2" style="color:var(--text-mid);"><strong>Kwame Nkrumah University of Science and Technology (KNUST)</strong>, Kumasi, Ghana</p>
+            <p class="text-sm" style="color:var(--text-lo);">Thesis: <em>Using Machine Learning and Infrared Thermography to Identify and Classify Defects in Crystalline Photovoltaics in Ghana.</em> Key coursework: CFD, Fluid Machinery, Advanced Engineering Thermodynamics, Heat and Mass Transfer, Computer-Aided Analysis and Modelling.</p>
+          </div>
+        </div>
+
+        <!-- Ocean University China -->
+        <div class="tl-item mb-8 sr" style="--d:.12s;">
+          <div class="tl-line"></div>
+          <div class="glass p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-semibold" style="color:var(--text-hi);">Marine New Energy &amp; Advanced Manufacturing Technologies</h3>
+                <p style="color:#2A4A7A;font-weight:500;font-size:.9rem;">Ocean University of China (OUC), Qingdao, China — 18-day Intensive Programme</p>
+              </div>
+              <span class="tag whitespace-nowrap self-start">Jul 2026</span>
+            </div>
+            <p class="text-sm" style="color:var(--text-lo);">Covers marine renewable energy, offshore wind blade manufacturing (CRRC New Era), deep-sea engineering (CIMC Raffles), and marine resource development (CNOOC). Includes industry visits at world-leading offshore energy facilities.</p>
+          </div>
+        </div>
+
+        <!-- BSc -->
+        <div class="tl-item sr" style="--d:.18s;">
+          <div class="glass p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-semibold" style="color:var(--text-hi);">BSc, Mechanical Engineering</h3>
+                <p style="color:#7A5E14;font-weight:500;font-size:.9rem;">Second Class Upper Division</p>
+              </div>
+              <span class="tag whitespace-nowrap self-start">2016 – 2020</span>
+            </div>
+            <p class="text-sm mb-2" style="color:var(--text-mid);"><strong>Kwame Nkrumah University of Science and Technology (KNUST)</strong>, Kumasi, Ghana</p>
+            <p class="text-sm" style="color:var(--text-lo);">Key coursework: Fluid Mechanics I &amp; II, Behaviour of Real Fluids, Hydraulics &amp; Pneumatics, Vibrations, Strength of Materials, Numerical Analysis, Renewable Energy Conversion.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Affiliations -->
+      <div class="mt-14 sr">
+        <h3 class="font-serif text-xl font-semibold mb-6 text-center" style="color:var(--text-hi);">Professional Affiliations</h3>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="glass p-4 text-center">
+            <p class="font-semibold text-sm mb-1" style="color:var(--text-hi);">VP — IAESTE KNUST</p>
+            <p class="text-xs font-mono" style="color:var(--text-lo);">2024 – 2025</p>
+          </div>
+          <div class="glass p-4 text-center">
+            <p class="font-semibold text-sm mb-1" style="color:var(--text-hi);">Ghana Institution of Engineers</p>
+            <p class="text-xs font-mono" style="color:var(--text-lo);">Student Member · 2025</p>
+          </div>
+          <div class="glass p-4 text-center">
+            <p class="font-semibold text-sm mb-1" style="color:var(--text-hi);">Natl. Society of Black Engineers</p>
+            <p class="text-xs font-mono" style="color:var(--text-lo);">Student Member · 2025</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACT                                                       -->
+  <!-- ============================================================ -->
+  <section id="contact" class="section" style="background:linear-gradient(180deg,transparent,rgba(24,48,90,.05));">
+    <div class="max-w-4xl mx-auto">
+      <div class="label mb-3 text-center sr">07 — Contact</div>
+      <h2 class="font-serif font-bold text-center mb-4 sr" style="font-size:clamp(2rem,5vw,3.2rem);">
+        Let's <span class="grad">Collaborate</span>
+      </h2>
+      <p class="text-center mb-14 max-w-lg mx-auto sr" style="color:var(--text-lo);">
+        Interested in research collaboration, academic inquiry, or consulting on renewable energy diagnostics? I'd love to connect.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Info cards -->
+        <div class="space-y-4 sr-left">
+          <div class="glass p-5 flex items-center gap-4 cursor-pointer">
+            <div class="icon-box" style="background:rgba(24,48,90,.15);">
+              <svg class="w-5 h-5" style="color:#18305A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <p class="label mb-0.5" style="font-size:.65rem;">Email</p>
+              <a href="mailto:rachirobe@gmail.com" style="color:var(--text-hi);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--blue-hi)'" onmouseout="this.style.color='var(--text-hi)'">rachirobe@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="glass p-5 flex items-center gap-4">
+            <div class="icon-box" style="background:rgba(150,118,30,.15);">
+              <svg class="w-5 h-5" style="color:#7A5E14;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <p class="label mb-0.5" style="font-size:.65rem;">Location</p>
+              <p style="color:var(--text-hi);">Accra, Ghana</p>
+            </div>
+          </div>
+
+          <div class="glass p-5 flex items-center gap-4">
+            <div class="icon-box" style="background:rgba(42,74,122,.15);">
+              <svg class="w-5 h-5" style="color:#2A4A7A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <p class="label mb-0.5" style="font-size:.65rem;">Open To</p>
+              <p style="color:var(--text-hi);">Research · Consulting · Speaking</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="sr-right">
+          <form id="contact-form" onsubmit="submitForm(event)" novalidate>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label for="f-name" class="label block mb-1.5" style="font-size:.65rem;">Name</label>
+                <input id="f-name" type="text" class="field" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="f-email" class="label block mb-1.5" style="font-size:.65rem;">Email</label>
+                <input id="f-email" type="email" class="field" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="f-subject" class="label block mb-1.5" style="font-size:.65rem;">Subject</label>
+              <input id="f-subject" type="text" class="field" placeholder="Research collaboration / Inquiry" required />
+            </div>
+            <div class="mb-5">
+              <label for="f-msg" class="label block mb-1.5" style="font-size:.65rem;">Message</label>
+              <textarea id="f-msg" class="field" rows="5" placeholder="Tell me about your project or inquiry..." required style="resize:vertical;"></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="btn-primary w-full" style="justify-content:center;">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              Send Message
+            </button>
+          </form>
+          <div id="form-ok" class="hidden mt-4 p-4 rounded-xl text-center font-mono text-sm" style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);color:#15803D;">
+            Message sent! I'll respond within 24–48 hours.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer style="border-top:1px solid rgba(0,0,0,.08);padding:2rem 1.5rem;">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="font-serif text-xl font-semibold grad">R · W · A</span>
+      <p class="font-mono text-xs text-center" style="color:var(--text-lo);">
+        © 2026 Reamy Womodowe Achirobe · MPhil Researcher · KNUST, Ghana
+      </p>
+      <a href="#hero" class="nav-a text-xs">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT                                                    -->
+  <!-- ============================================================ -->
+  <script>
+  (() => {
+    /* ─── SCROLL PROGRESS ───────────────────────────────────── */
+    const prog = document.getElementById('scroll-progress');
+    const onScroll = () => {
+      const pct = window.scrollY / (document.documentElement.scrollHeight - innerHeight) * 100;
+      prog.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ─── PARTICLE CANVAS ───────────────────────────────────── */
+    const canvas = document.getElementById('particle-canvas');
+    const ctx    = canvas.getContext('2d');
+    let W, H, pts = [];
+    const mouse = { x: null, y: null };
+
+    const resize = () => {
+      W = canvas.width  = innerWidth;
+      H = canvas.height = innerHeight;
+      buildPts();
+    };
+
+    class Pt {
+      constructor() { this.reset(true); }
+      reset(random) {
+        this.x  = random ? Math.random() * W : (Math.random() < .5 ? -5 : W + 5);
+        this.y  = Math.random() * H;
+        this.vx = (Math.random() - .5) * .45;
+        this.vy = (Math.random() - .5) * .45;
+        this.r  = Math.random() * 1.5 + .4;
+        this.op = Math.random() * .12 + .03;
+        const c = [['24,48,90'],['150,118,30'],['42,74,122']][Math.floor(Math.random()*3)];
+        this.col = c;
+      }
+      tick() {
+        this.x += this.vx; this.y += this.vy;
+        if (mouse.x !== null) {
+          const dx = this.x - mouse.x, dy = this.y - mouse.y;
+          const d2 = dx*dx + dy*dy;
+          if (d2 < 22500) { // 150²
+            const f = (150 - Math.sqrt(d2)) / 150 * 1.8;
+            const a = Math.atan2(dy, dx);
+            this.x += Math.cos(a) * f;
+            this.y += Math.sin(a) * f;
+          }
+        }
+        if (this.x < -10 || this.x > W+10 || this.y < -10 || this.y > H+10) this.reset(true);
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(${this.col},${this.op})`;
+        ctx.fill();
+      }
+    }
+
+    const buildPts = () => {
+      const n = Math.min(Math.floor(W * H / 11000), 130);
+      pts = Array.from({length: n}, () => new Pt());
+    };
+
+    const connect = () => {
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i+1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d  = Math.sqrt(dx*dx + dy*dy);
+          if (d < 120) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `rgba(24,48,90,${(1 - d/120) * .06})`;
+            ctx.lineWidth = .5;
+            ctx.stroke();
+          }
+        }
+      }
+    };
+
+    const loop = () => {
+      ctx.clearRect(0, 0, W, H);
+      pts.forEach(p => { p.tick(); p.draw(); });
+      connect();
+      requestAnimationFrame(loop);
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+    loop();
+
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    hero.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+    /* ─── PARALLAX (hero mouse) ──────────────────────────────── */
+    const heroBody = document.getElementById('hero-body');
+    const orbs     = [document.getElementById('orb1'), document.getElementById('orb2'), document.getElementById('orb3')];
+    heroBody.style.transition = 'transform .12s ease-out';
+    orbs.forEach(o => o.style.transition = 'transform .35s ease-out');
+
+    hero.addEventListener('mousemove', e => {
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width/2)  / r.width;
+      const y = (e.clientY - r.top  - r.height/2) / r.height;
+      heroBody.style.transform = `translate(${x*14}px,${y*9}px)`;
+      orbs.forEach((o, i) => {
+        const f = (i+1) * 10;
+        o.style.transform = `translate(${x*f}px,${y*f}px)`;
+      });
+    });
+    hero.addEventListener('mouseleave', () => {
+      heroBody.style.transform = 'translate(0,0)';
+      orbs.forEach(o => o.style.transform = 'translate(0,0)');
+    });
+
+    /* ─── TYPING ANIMATION ───────────────────────────────────── */
+    const phrases = [
+      'Mechanical Engineer',
+      'Energy Systems Researcher',
+      'Deep Learning Practitioner',
+      'Solar PV Specialist',
+      'MPhil Candidate @ KNUST',
+      'Infrared Thermography Expert',
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typed');
+    const type = () => {
+      const p = phrases[pi];
+      if (!deleting) {
+        el.textContent = p.slice(0, ++ci);
+        if (ci === p.length) { deleting = true; setTimeout(type, 2200); return; }
+        setTimeout(type, 70);
+      } else {
+        el.textContent = p.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi+1) % phrases.length; setTimeout(type, 300); return; }
+        setTimeout(type, 42);
+      }
+    };
+    setTimeout(type, 800);
+
+    /* ─── SCROLL REVEAL (Intersection Observer) ──────────────── */
+    const srOpts = { threshold: .12, rootMargin: '0px 0px -40px 0px' };
+    const srObs  = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const d = parseFloat(getComputedStyle(en.target).getPropertyValue('--d') || '0') * 1000;
+          setTimeout(() => en.target.classList.add('on'), d);
+          srObs.unobserve(en.target);
+        }
+      });
+    }, srOpts);
+    document.querySelectorAll('.sr,.sr-left,.sr-right').forEach(el => srObs.observe(el));
+
+    // Immediately reveal hero elements
+    document.querySelectorAll('#hero .sr').forEach((el, i) => {
+      setTimeout(() => el.classList.add('on'), 300 + i * 140);
+    });
+
+    /* ─── SKILL BARS ─────────────────────────────────────────── */
+    const barObs = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.style.width = en.target.dataset.w + '%';
+          barObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll('.bar-fill').forEach(b => barObs.observe(b));
+
+    /* ─── COUNTERS ───────────────────────────────────────────── */
+    const cntObs = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const target = +en.target.dataset.count;
+        let cur = 0;
+        const step = target / 38;
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= target) { cur = target; clearInterval(t); }
+          en.target.textContent = Math.floor(cur);
+        }, 35);
+        cntObs.unobserve(en.target);
+      });
+    }, { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(e => cntObs.observe(e));
+
+    /* ─── NAVBAR SCROLL ──────────────────────────────────────── */
+    const navGlass = document.getElementById('nav-glass');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navGlass.style.background     = 'rgba(255,255,255,0.97)';
+        navGlass.style.boxShadow      = '0 2px 20px rgba(0,0,0,0.08)';
+        navGlass.style.backdropFilter = 'blur(20px)';
+        navGlass.style.webkitBackdropFilter = 'blur(20px)';
+      } else {
+        navGlass.style.background     = 'rgba(255,255,255,0.85)';
+        navGlass.style.boxShadow      = '0 1px 4px rgba(0,0,0,0.05)';
+        navGlass.style.backdropFilter = 'blur(20px)';
+        navGlass.style.webkitBackdropFilter = 'blur(20px)';
+      }
+    }, { passive: true });
+
+    /* ─── MOBILE MENU ────────────────────────────────────────── */
+    const mobBtn   = document.getElementById('mob-btn');
+    const mobMenu  = document.getElementById('mob-menu');
+    const iconOpen  = document.getElementById('mob-icon-open');
+    const iconClose = document.getElementById('mob-icon-close');
+    let menuOpen = false;
+
+    mobBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobMenu.classList.toggle('hidden',  !menuOpen);
+      mobMenu.classList.toggle('flex',     menuOpen);
+      iconOpen.classList.toggle('hidden',  menuOpen);
+      iconClose.classList.toggle('hidden', !menuOpen);
+    });
+    mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menuOpen = false;
+      mobMenu.classList.add('hidden'); mobMenu.classList.remove('flex');
+      iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden');
+    }));
+
+    /* ─── CONTACT FORM ───────────────────────────────────────── */
+    window.submitForm = (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      btn.style.opacity = '.7';
+      setTimeout(() => {
+        e.target.reset();
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        const ok = document.getElementById('form-ok');
+        ok.classList.remove('hidden');
+        setTimeout(() => ok.classList.add('hidden'), 5000);
+      }, 1400);
+    };
+
+    /* ─── REDUCED MOTION OVERRIDE ────────────────────────────── */
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.sr,.sr-left,.sr-right').forEach(el => el.classList.add('on'));
+      el.textContent = 'Mechanical Engineer & Researcher';
+    }
+  })();
+  </script>
+</body>
+</html>
